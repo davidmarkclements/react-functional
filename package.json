@@ -24,5 +24,17 @@
     "babel-tap": "^4.0.0",
     "react-dom": "^0.14.3",
     "react-shallow-renderer": "^1.1.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidmarkclements/react-functional.git"
+  },
+  "author": "David Mark Clements",
+  "bugs": {
+    "url": "https://github.com/davidmarkclements/react-functional/issues"
+  },
+  "homepage": "https://github.com/davidmarkclements/react-functional#readme"
 }
