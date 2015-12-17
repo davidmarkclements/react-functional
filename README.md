@@ -3,6 +3,11 @@
 Add life cycle methods to stateless functional components,
 without the class noise. 
 
+```sh
+npm i -g --save react-functional
+```
+
+
 ## functional(component)
 
 ### Adding life cycle methods to function component
