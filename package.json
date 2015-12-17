@@ -1,6 +1,6 @@
 {
   "name": "react-functional",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Add life cycle methods to stateless functional components, without the class noise.",
   "main": "lib/index.js",
   "scripts": {
