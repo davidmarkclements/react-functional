@@ -52,12 +52,14 @@ export default function (component, opts = {}) {
     ...methods.reduce((o, m) => {
       if (!(m in component)) return o
       o[m] = function(input) {
+        if (!this) throw Error('NO CONTEXT')
         const {props, refs} = this
-        return component[m](...props, input, ...refs)
+        return component[m](...[props, input, refs, this].filter(Boolean))
       }
       return o
     }, {})
   }
 
   return React.createClass(spec)
+
 }
