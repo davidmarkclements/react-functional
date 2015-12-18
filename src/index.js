@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function (component) {
+export default function (component, opts = {}) {
   if (!component) {
      throw new Error(`
       [ReactStateless.createClass(component)] stateless needs a component
-    `)   
+    `)
   }
 
   component = (component instanceof Function) ?
@@ -13,10 +13,12 @@ export default function (component) {
 
   if (!('render' in component)) {
     throw new Error(`
-      [ReactStateless.createClass(component)] No render function found. 
+      [ReactStateless.createClass(component)] No render function found.
       "component" should be a render function or contain a render function.
     `)
   }
+
+  component = {...component, ...opts}
 
   const {render} = component
 
@@ -39,7 +41,7 @@ export default function (component) {
     'displayName'
   ]
 
-  const options = { 
+  const spec = { 
     displayName,
     render: function () { return render(this.props) },
     ...properties.reduce((o, p) => {
@@ -57,5 +59,5 @@ export default function (component) {
     }, {})
   }
 
-  return React.createClass(options)
+  return React.createClass(spec)
 }

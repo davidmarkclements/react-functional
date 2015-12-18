@@ -10,7 +10,25 @@ npm i -g --save react-functional
 
 ## functional(component)
 
-### Adding life cycle methods to function component
+### Pass life cycle methods as an options object
+
+```javascript
+import { React } from 'react'
+import functional from 'react-functional'
+
+function ComponentA(props) {
+  return <div>{ props.name }</div>
+}
+
+const options = {
+  shouldComponentUpdate: (props, nextProps) =>
+    props.name !== nextProps.name
+}
+
+export default functional(ComponentA, options)
+```
+
+### Add life cycle methods to function component
 
 ```javascript
 import { React } from 'react'
@@ -75,20 +93,26 @@ npm test
 
 ```sh
 test/index.js
-  function
+  function component
     ✓ componentWillMount called
     ✓ render function called
     ✓ div element rendered
     ✓ prop passed through
 
-  object
+  function w/ options object
+    ✓ componentWillMount called
+    ✓ render function called
+    ✓ div element rendered
+    ✓ prop passed through
+
+  object component
     ✓ componentWillMount called
     ✓ render function called
     ✓ div element rendered
     ✓ prop passed through
 
 
-  8 passing (1s)
+  12 passing (1s)
 ```
 
 ## Thanks
