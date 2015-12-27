@@ -43,7 +43,7 @@ export default function (component, opts = {}) {
 
   const spec = { 
     displayName,
-    render: function () { return render(this.props) },
+    render: function () { return render(this.props, this) },
     ...properties.reduce((o, p) => {
       if (!(p in component)) return o
       o[p] = component[p]

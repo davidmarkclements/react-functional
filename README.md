@@ -7,7 +7,6 @@ without the class noise.
 npm i -g --save react-functional
 ```
 
-
 ## functional(component)
 
 ### Pass life cycle methods as an options object
@@ -61,6 +60,30 @@ function render(props) {
 export default functional({shouldComponentUpdate, render})
 ```
 
+### Access Component Instance
+
+Since this isn't a class, using `this` to lookup a component
+instance is undesirable (and probably bug-prone). So react-functional
+passes the component instance as the last argument of the render method
+and all life cycle methods
+
+```js
+import { React } from 'react'
+import functional from 'react-functional'
+
+function ComponentA(props, cmp) {
+  return <input ref='name' onClick={()=>console.log(cmp.refs.name.value)}/>
+}
+
+const options = {
+  componentWillReceiveProps: (nextProps, cmp) => 
+    cmp.refs.name.value = nextProps.name
+}
+
+export default functional(ComponentA, options)
+
+```
+
 ### Supported properties
 
 - `propTypes`
@@ -98,21 +121,24 @@ test/index.js
     ✓ render function called
     ✓ div element rendered
     ✓ prop passed through
+    ✓ instance passed through render
+    ✓ instance passed through lifecycle methods
 
   function w/ options object
     ✓ componentWillMount called
     ✓ render function called
     ✓ div element rendered
     ✓ prop passed through
+    ✓ instance passed through render
+    ✓ instance passed through lifecycle methods
 
   object component
     ✓ componentWillMount called
     ✓ render function called
     ✓ div element rendered
     ✓ prop passed through
-
-
-  12 passing (1s)
+    ✓ instance passed through render
+    ✓ instance passed through lifecycle methods
 ```
 
 ## Thanks
