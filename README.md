@@ -1,7 +1,11 @@
 # react-functional
 
 Add life cycle methods to stateless functional components,
-without the class noise. 
+without the class noise.
+
+### Supported Version
+
+React 16 (use v2.0.0 for older versions)
 
 ```sh
 npm i -g --save react-functional
