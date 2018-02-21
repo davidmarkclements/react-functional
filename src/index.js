@@ -1,9 +1,9 @@
-import React from 'react'
+import createReactClass from 'create-react-class';
 
 export default function (component, opts = {}) {
   if (!component) {
      throw new Error(`
-      [ReactStateless.createClass(component)] stateless needs a component
+      [createReactClass(component)] stateless needs a component
     `)
   }
 
@@ -13,7 +13,7 @@ export default function (component, opts = {}) {
 
   if (!('render' in component)) {
     throw new Error(`
-      [ReactStateless.createClass(component)] No render function found.
+      [createReactClass(component)] No render function found.
       "component" should be a render function or contain a render function.
     `)
   }
@@ -60,6 +60,6 @@ export default function (component, opts = {}) {
     }, {})
   }
 
-  return React.createClass(spec)
+  return createReactClass(spec);
 
 }
