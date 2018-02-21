@@ -8,7 +8,7 @@ without the class noise.
 React 16 (use v2.0.0 for older versions)
 
 ```sh
-npm i -g --save react-functional
+npm i --save react-functional
 ```
 
 ## functional(component)
