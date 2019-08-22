@@ -13,7 +13,7 @@ test(`function component`, async ({plan, pass, is, contains}) => {
     return (<div>{name}</div>)
   }
 
-  component.componentWillMount = (props, refs, cmp) => {
+  component.UNSAFE_componentWillMount = (props, refs, cmp) => {
     instance2 = cmp
     pass('componentWillMount called')
   }
@@ -60,7 +60,7 @@ test(`function w/ options object`, async ({plan, pass, is, contains}) => {
   }
 
   const options = {
-    componentWillMount: (props, refs, cmp) => {
+    UNSAFE_componentWillMount: (props, refs, cmp) => {
       instance2 = cmp
       pass('componentWillMount called')
     }
@@ -103,7 +103,7 @@ test(`object component`, async ({plan, pass, is, contains}) => {
   let instance2
 
   const component = {
-    componentWillMount: (props, refs, cmp) => {
+    UNSAFE_componentWillMount: (props, refs, cmp) => {
       instance2 = cmp
       pass('componentWillMount called')
     },
